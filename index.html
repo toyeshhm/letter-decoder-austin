@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letter Decoder</title>
+<meta name="description" content="Photograph a confusing official letter. Get what it says, the deadline, and free Austin help, in your language.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231F3D2E'/><path d='M14 22h36v22H14z' fill='%23F6EFE3'/><path d='M14 22l18 13 18-13' fill='none' stroke='%23C65A3A' stroke-width='4'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500;1,9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+<header class="nav">
+  <a class="mark" href="#top"><span class="mark-env" aria-hidden="true"></span>Letter Decoder</a>
+  <nav><a href="#how">How it works</a><a href="#letters">Letters we read</a><a class="nav-cta" href="#decode">Decode a letter</a></nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" data-parallax="0.25"><img src="/assets/bg-hero.webp" alt="" onerror="this.src='/assets/hero.webp'"></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="floaters" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="leaves" aria-hidden="true"><img src="/assets/accent-leaf.webp" alt=""><img src="/assets/accent-leaf.webp" alt=""><img src="/assets/accent-leaf.webp" alt=""><img src="/assets/accent-leaf.webp" alt=""><img src="/assets/accent-leaf.webp" alt=""><img src="/assets/accent-leaf.webp" alt=""><img src="/assets/accent-leaf.webp" alt=""></div>
+  <img class="hero-stamp" src="/assets/accent-stamp.webp" alt="" aria-hidden="true" data-parallax="-0.18">
+  <div class="hero-copy">
+    <p class="eyebrow reveal">Free · 12 languages · No sign-up · Austin, TX</p>
+    <h1 class="reveal"><span>A letter came.</span><span class="ul"><em>Now you'll know</em><svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 60 4, 120 18, 180 9 S 270 6, 296 12"/></svg></span><span>what it means.</span></h1>
+    <p class="lede reveal">Snap a photo of any official letter. Get what it says, the real deadline, what happens if you wait, and the free Austin service that can help, in your own language.</p>
+    <div class="hero-ctas reveal"><a class="btn primary" href="#decode">📷 Decode my letter</a><button class="btn glass" type="button" data-sample>Try a sample letter</button></div>
+  </div>
+  <a class="scroll-cue" href="#decode" aria-label="Scroll to start"><span></span></a>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>Hello</span><span>Hola</span><span>Xin chào</span><span>مرحبا</span><span>你好</span><span>سلام</span><span>မင်္ဂလာပါ</span><span>Habari</span><span>Bonjour</span><span>안녕하세요</span><span>नमस्ते</span><span>ښه راغلاست</span>
+  <span>Hello</span><span>Hola</span><span>Xin chào</span><span>مرحبا</span><span>你好</span><span>سلام</span><span>မင်္ဂလာပါ</span><span>Habari</span><span>Bonjour</span><span>안녕하세요</span><span>नमस्ते</span><span>ښه راغلاست</span>
+</div></div>
+<div class="marquee rev" aria-hidden="true"><div class="marquee-track">
+  <span>Hello</span><span>Hola</span><span>Xin chào</span><span>مرحبا</span><span>你好</span><span>سلام</span><span>မင်္ဂလာပါ</span><span>Habari</span><span>Bonjour</span><span>안녕하세요</span><span>नमस्ते</span><span>ښه راغلاست</span>
+  <span>Hello</span><span>Hola</span><span>Xin chào</span><span>مرحبا</span><span>你好</span><span>سلام</span><span>မင်္ဂလာပါ</span><span>Habari</span><span>Bonjour</span><span>안녕하세요</span><span>नमस्ते</span><span>ښه راغلاست</span>
+</div></div>
+
+<main>
+<section class="decode band" id="decode">
+  <img class="accent a-env" src="/assets/accent-envelope.webp" alt="" aria-hidden="true" data-parallax="-0.12">
+  <img class="accent a-pie" src="/assets/accent-pie.webp" alt="" aria-hidden="true" data-parallax="0.1">
+  <div class="decode-card reveal">
+    <div class="decode-art"><img id="thumb" src="/assets/empty-state.webp" alt=""><div class="scan" aria-hidden="true"></div></div>
+    <div class="decode-form">
+      <h2>Show us the letter.</h2>
+      <p class="muted">Lay the whole page flat in good light. We read it, explain it, and point you to help.</p>
+      <label for="lang">Answer me in</label>
+      <select id="lang">
+        <option>English</option><option value="Spanish">Español</option><option value="Vietnamese">Tiếng Việt</option><option value="Arabic">العربية</option><option value="Simplified Chinese">简体中文</option><option value="Dari">دری</option><option value="Pashto">پښتو</option><option value="Burmese">မြန်မာ</option><option value="Swahili">Kiswahili</option><option value="French">Français</option><option value="Korean">한국어</option><option value="Hindi">हिन्दी</option>
+      </select>
+      <input id="file" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" hidden>
+      <div class="btns"><button class="btn primary" id="pick" type="button">📷 Take or upload a photo</button><button class="btn ghost" type="button" data-sample>Use a sample letter</button></div>
+      <p class="privacy">🔒 Your photo is read by an AI model to write the answer. We don't save it.</p>
+    </div>
+    <div class="reading" id="status" role="status" aria-live="polite">
+      <img src="/assets/reading.webp" alt="" onerror="this.remove()">
+      <p id="statusText">Reading your letter…</p>
+      <div class="dots"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <div class="error" id="error" role="alert"></div>
+
+  <article id="result" aria-live="polite">
+    <div class="r-hero">
+      <img id="r-art" src="/assets/reading.webp" alt="" onerror="this.style.visibility='hidden'">
+      <div><div class="r-meta"><span class="pill" id="r-urg"></span><span class="from" id="r-from"></span></div><h2 id="r-title"></h2></div>
+    </div>
+    <div class="r-grid">
+      <section class="rc rc-summary"><h3 id="l-summary"></h3><p id="r-summary"></p></section>
+      <section class="rc rc-deadline"><h3 id="l-deadline"></h3>
+        <div class="countdown"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52"/><circle id="ring" cx="60" cy="60" r="52"/></svg><div><b id="r-days">–</b><small id="r-dayslabel">days</small></div></div>
+        <p class="big" id="r-date"></p><p id="r-deadline"></p></section>
+      <section class="rc rc-ignore"><h3 id="l-ignore"></h3><p id="r-ignore"></p></section>
+      <section class="rc rc-steps"><h3 id="l-steps"></h3><ol class="steps" id="r-steps"></ol></section>
+      <section class="rc rc-help"><img src="/assets/step-help.webp" alt="" onerror="this.remove()"><h3 id="l-help"></h3><p class="name" id="s-name"></p><p class="what" id="s-what" dir="ltr"></p>
+        <div class="btns"><a class="btn call" id="s-call"></a><a class="btn web" id="s-web" target="_blank" rel="noopener"></a></div></section>
+    </div>
+    <p class="note" id="l-note"></p>
+    <button class="btn ghost again" id="again" type="button">↺ Decode another letter</button>
+  </article>
+</section>
+
+<section class="how band" id="how">
+  <img class="accent a-leaf" src="/assets/accent-leaf.webp" alt="" aria-hidden="true" data-parallax="-0.15">
+  <p class="eyebrow reveal">How it works</p>
+  <h2 class="reveal">Three steps. About thirty seconds.</h2>
+  <div class="how-grid">
+    <figure class="reveal"><img src="/assets/step-snap.webp" alt="" loading="lazy" onerror="this.remove()"><figcaption><b>1. Snap it</b>Rent, power, immigration, court, school, taxes. Any official letter.</figcaption></figure>
+    <figure class="reveal"><img src="/assets/step-read.webp" alt="" loading="lazy" onerror="this.remove()"><figcaption><b>2. Understand it</b>Plain words in your language, with the date that matters circled for you.</figcaption></figure>
+    <figure class="reveal"><img src="/assets/step-help.webp" alt="" loading="lazy" onerror="this.remove()"><figcaption><b>3. Get free help</b>The Austin service that handles that kind of letter, one tap to call.</figcaption></figure>
+  </div>
+</section>
+
+<section class="letters band" id="letters">
+  <img class="accent a-stamp" src="/assets/accent-stamp.webp" alt="" aria-hidden="true" data-parallax="0.12">
+  <p class="eyebrow reveal">Letters we read</p>
+  <h2 class="reveal">The scary envelopes, made plain.</h2>
+  <div class="cat-grid">
+    <div class="cat reveal"><img src="/assets/cat-housing.webp" alt="" loading="lazy" onerror="this.remove()"><b>Rent &amp; eviction</b><span>Notices to vacate, lease violations</span></div>
+    <div class="cat reveal"><img src="/assets/cat-utility.webp" alt="" loading="lazy" onerror="this.remove()"><b>Power &amp; water</b><span>Past-due bills, shutoff warnings</span></div>
+    <div class="cat reveal"><img src="/assets/cat-immigration.webp" alt="" loading="lazy" onerror="this.remove()"><b>Immigration</b><span>USCIS notices, court dates</span></div>
+    <div class="cat reveal"><img src="/assets/cat-money.webp" alt="" loading="lazy" onerror="this.remove()"><b>Money &amp; benefits</b><span>Debt, taxes, SNAP, Medicaid, medical bills</span></div>
+    <div class="cat reveal"><img src="/assets/cat-school.webp" alt="" loading="lazy" onerror="this.remove()"><b>School</b><span>Austin ISD forms and notices</span></div>
+    <div class="cat reveal"><img src="/assets/cat-court.webp" alt="" loading="lazy" onerror="this.remove()"><b>Court</b><span>Summons, citations, civil cases</span></div>
+  </div>
+</section>
+
+<section class="neighbors">
+  <div class="nb-art reveal" data-parallax="-0.08"><img src="/assets/helper.webp" alt="Two neighbors reading a letter together at a kitchen table" loading="lazy" onerror="this.src='/assets/hero.webp'"></div>
+  <div class="nb-copy reveal">
+    <p class="eyebrow">Why we built this</p>
+    <h2>Nobody should lose a home over a letter they couldn't read.</h2>
+    <p>Austin is home to families from all over the world, and to neighbors who've lived here for 80 years. The letters they get are written for lawyers. A missed date can mean an eviction, a shutoff or a lost case.</p>
+    <p>Letter Decoder is the friend at the kitchen table who reads it with you, and knows who to call.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <img class="footer-art" src="/assets/footer-leaves.webp" alt="" loading="lazy" onerror="this.remove()">
+  <div class="footer-copy"><b>Made with a little code and a lot of heart</b> at Build to Give, Austin, November 16, 2026.<br>Letter Decoder explains letters. It is not a lawyer. Every help listing was checked on the organization's own site.</div>
+</footer>
+<script src="/app.js"></script>
+</body>
+</html>
